@@ -18,7 +18,7 @@
         "symfony/dependency-injection": "~2.3|~3.0",
         "symfony/console": "~2.3|~3.0",
         "symfony/yaml": "~2.3|~3.0",
-        "devlabs91/assetic": "~1.4"
+        "devlabs91/assetic": "dev-master"
     },
     "require-dev": {
         "patchwork/jsqueeze": "~1.0",
@@ -44,5 +44,6 @@
         "branch-alias": {
             "dev-master": "2.8-dev"
         }
-    }
+    },
+    "minimum-stability": "dev"
 }
