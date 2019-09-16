@@ -25,6 +25,14 @@
     </parameters>
 
     <services>
+        <!-- commands -->
+        <service id="assetic.command.dump" class="Symfony\Bundle\AsseticBundle\Command\DumpCommand">
+            <tag name="console.command" command="assetic:dump" />
+        </service>
+        <service id="assetic.command.watch" class="Symfony\Bundle\AsseticBundle\Command\WatchCommand">
+            <tag name="console.command" command="assetic:watch" />
+        </service>
+
         <!-- managers -->
         <service id="assetic.filter_manager" class="%assetic.filter_manager.class%" public="true">
             <argument type="service" id="service_container" />
