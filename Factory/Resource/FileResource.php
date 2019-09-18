@@ -12,8 +12,8 @@
 namespace Symfony\Bundle\AsseticBundle\Factory\Resource;
 
 use Assetic\Factory\Resource\ResourceInterface;
-use Symfony\Bundle\FrameworkBundle\Templating\TemplateReference;
-use Symfony\Component\Templating\Loader\LoaderInterface;
+use Symfony\Bundle\AsseticBundle\Templating\TemplateReference;
+use Twig\Loader\LoaderInterface;
 
 /**
  * A file resource.
@@ -52,13 +52,11 @@ class FileResource implements ResourceInterface
     public function getContent()
     {
         $templateReference = $this->getTemplate();
-        $fileResource = $this->loader->load($templateReference);
-
+        $fileResource = $this->loader->exists($templateReference->__toString());
         if (!$fileResource) {
-            throw new \InvalidArgumentException(sprintf('Unable to find template "%s".', $templateReference));
+            throw new \InvalidArgumentException(sprintf('Unable to find template "%s".', $templateReference->__toString()));
         }
-
-        return $fileResource->getContent();
+        return $this->loader->getSourceContext($templateReference->__toString())->getCode();
     }
 
     public function __toString()

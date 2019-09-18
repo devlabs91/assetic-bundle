@@ -14,7 +14,7 @@ namespace Symfony\Bundle\AsseticBundle\Twig;
 use Assetic\Extension\Twig\AsseticExtension as BaseAsseticExtension;
 use Assetic\Factory\AssetFactory;
 use Assetic\ValueSupplierInterface;
-use Symfony\Component\Templating\TemplateNameParserInterface;
+use Symfony\Bundle\AsseticBundle\Component\Templating\TemplateNameParserInterface;
 
 /**
  * Assetic extension.

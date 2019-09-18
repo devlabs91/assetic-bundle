@@ -29,21 +29,17 @@ class TemplateResourcesPass implements CompilerPassInterface
             return;
         }
 
-        $engines = $container->getParameter('templating.engines');
+        $engine = 'twig';
 
         // bundle and kernel resources
         $bundles = $container->getParameter('kernel.bundles');
         $asseticBundles = $container->getParameterBag()->resolveValue($container->getParameter('assetic.bundles'));
         foreach ($asseticBundles as $bundleName) {
             $rc = new \ReflectionClass($bundles[$bundleName]);
-            foreach ($engines as $engine) {
-                $this->setBundleDirectoryResources($container, $engine, dirname($rc->getFileName()), $bundleName);
-            }
+            $this->setBundleDirectoryResources($container, $engine, dirname($rc->getFileName()), $bundleName);
         }
 
-        foreach ($engines as $engine) {
-            $this->setAppDirectoryResources($container, $engine);
-        }
+        $this->setAppDirectoryResources($container, $engine);
     }
 
     protected function setBundleDirectoryResources(ContainerBuilder $container, $engine, $bundleDirName, $bundleName)

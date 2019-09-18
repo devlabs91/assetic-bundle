@@ -13,8 +13,8 @@ namespace Symfony\Bundle\AsseticBundle\Twig;
 
 use Assetic\Extension\Twig\AsseticFilterFunction;
 use Symfony\Bundle\AsseticBundle\Exception\InvalidBundleException;
-use Symfony\Bundle\FrameworkBundle\Templating\TemplateReference;
-use Symfony\Component\Templating\TemplateNameParserInterface;
+use Symfony\Bundle\AsseticBundle\Templating\TemplateReference;
+use Symfony\Bundle\AsseticBundle\Component\Templating\TemplateNameParserInterface;
 
 /**
  * Assetic node visitor.

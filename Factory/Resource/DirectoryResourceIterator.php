@@ -11,7 +11,7 @@
 
 namespace Symfony\Bundle\AsseticBundle\Factory\Resource;
 
-use Symfony\Component\Templating\Loader\LoaderInterface;
+use Twig\Loader\LoaderInterface;
 
 class DirectoryResourceIterator extends \RecursiveIteratorIterator
 {

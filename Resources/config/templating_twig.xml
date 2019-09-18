@@ -10,11 +10,19 @@
     </parameters>
 
     <services>
+        <service id="assetic.templating_loader" class="AsseticTemplatingLoader">
+            <factory class="Symfony\Bundle\AsseticBundle\Factory\TemplatingFactory" method="getLoader"/>
+            <argument type="service" id="Twig\Environment" />
+        </service>
+        <service id="assetic.templating_name_parser" class="AsseticTemplatingNameParser">
+            <factory class="Symfony\Bundle\AsseticBundle\Factory\TemplatingFactory" method="getNameParser"/>
+            <argument type="service" id="kernel" />
+        </service>
         <service id="assetic.twig_extension" class="%assetic.twig_extension.class%" public="false">
             <tag name="twig.extension" />
             <tag name="assetic.templating.twig" />
             <argument type="service" id="assetic.asset_factory" />
-            <argument type="service" id="templating.name_parser" />
+            <argument type="service" id="assetic.templating_name_parser" />
             <argument>%assetic.use_controller%</argument>
             <argument>%assetic.twig_extension.functions%</argument>
             <argument>%assetic.bundles%</argument>
